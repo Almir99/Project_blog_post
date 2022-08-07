@@ -1,0 +1,193 @@
+:root{
+    --text-color: #353b48;
+    --text-color-transperent: rgba(53, 59, 72,0.5);
+    --bg-color:#f5f6fa;
+
+    --color-one:#487eb0;
+    --color-two:#7f8fa6;
+    --color-two-transperent:rgba(127, 143, 166,0.2);
+
+    --box-shadow-sm:
+    4px 6px 8px var(--color-one),
+    -3px 3px 18px 2px var(--color-one),
+    2px 5px 10px -3px var(--color-one);
+    --box-shadow-lg:
+    0px 8px 10px var(--color-one),
+    0px 3px 14px 2px var(--color-one),
+    0px 5px 5px -3px var(--color-one);
+
+    --xlg: 2.4rem;
+    --lg: 1.7rem;
+    --md: 1.3rem;
+    --sm: 1rem;
+    --xsm: 0.75rem;
+
+    --radius-sm: 5px;
+    --radius-lg: 15px;
+    --transition: all 168ms ease-in;
+
+}
+
+*,*:before,*:after{
+    border:0;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    color: var(--text-color);
+    font-family: Arial;
+    margin: var(--xlg) var(--lg);
+    font-size: var(--sm);
+}
+input, button, input::placeholder{
+    color: inherit;
+}
+.container{
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-gap: var(--xlg);
+    max-width: 1400px;
+    margin: auto;
+}
+h1 {
+font-size: var(--xlg);
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+}
+small{
+    font-size: var(--xsm);
+}
+[type="search"]{
+    --webkit-appearence: none;
+    background-color: var(--bg-color);
+    border-radius: var(--radius-lg);
+    padding: var(--sm) var(--lg);
+    font-size: var(--sm);
+    --webkit-box-shadow: var(--box-shadow-lg);
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: auto;
+}
+[type="search"]::placeholder,
+[type="search"]::-webkit-input-placeholder{
+    font-size: var(--sm);
+    color: var(--text-color-transperent);
+}
+[type="search"]:focus {
+    outline: var(--color-one) auto 1px;
+}
+[type="search"]::-webkit-search-cancel-button {
+    --webkit-appearence: none;
+}
+.post_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: var(--xlg);
+    align-items: start;
+}
+.post {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-lg);
+    padding: var(--lg);
+    box-shadow: var(--box-shadow-lg);
+    display: grid;
+    grid-gap: var(--md);
+}
+.post__meta{
+    display: grid;
+    grid-gap: 10px;
+}
+.post__tag--container{
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 6px;
+}
+.post__tag{
+    padding: 3px 6px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-one);
+    color: var(--bg-color);
+    font-size: var(--xsm);
+}
+.post__date{
+    tab-size: var(--xsm);
+    text-transform: uppercase;
+}
+.post__date,
+.post__header,
+.post__author--name{
+    font-weight: 700;
+}
+.post__header{
+    font-size: var(--md);
+    line-height: 1.1;
+    background-color: var(--color-two);
+    padding: var(--md) var(--lg);
+    margin: 0 calc(var(--lg)*-1);
+}
+.post__header a:is(:active,:link,:visited){
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+.post__header a:is(:hover,:focus){
+    color: var(--text-color);
+}
+.post__author{
+    display: flex;
+    align-items: center;
+    grid-gap: var(--sm);
+}
+.post__author--avatar{
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-sm);
+}
+.post__author--role{
+    color: var(--color-one);
+}
+.post__body{
+    line-height: 1.4;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    max-height:  7.3rem;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.btn{
+    background-color: var(--color-two);
+    color: var(--bg-color);
+    box-shadow: var(--box-shadow-sm);
+    padding: calc(var(--xsm)*.7) var(--md);
+    border-radius: var(--radius-sm);
+    width: max-content;
+    font-size: var(--sm);
+    letter-spacing: 0.015em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn_view{
+    background-color: var(--color-one);
+    padding: var(--xsm) var(--md);
+}
+.btn:is(:hover,:focus){
+    background-color: var(--color-one);
+    box-shadow: none;
+}
+
+@media screen and (min-width: 768px){
+    .post_container{
+        grid-template-columns: repeat(auto-fit,minmax(380px, 1fr));
+    }
+    :root{
+        --xlg: 3.2rem;
+        --lg: 2.4rem;
+        --md: 1.7rem;
+        --sm: 1.3rem;
+        --xsm: 1rem;
+    }
+}
